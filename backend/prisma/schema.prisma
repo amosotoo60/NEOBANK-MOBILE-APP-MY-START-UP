@@ -1,0 +1,61 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String    @id @default(uuid())
+  name     String
+  email    String    @unique
+  password String
+  Listings Listing[] @relation("UserListings") // Explicitly named relation
+  Messages Message[] @relation("UserMessages") // Explicitly named relation
+  Wallets  Wallet[]  @relation("UserWallets")  // Explicitly named relation
+}
+
+model Wallet {
+  id        String   @id @default(uuid())
+  userId    String   // foreign key
+  user      User     @relation("UserWallets", fields: [userId], references: [id]) // Links to "UserWallets"
+  balance   Float    @default(0)
+  currency  String   @default("USD")
+  createdAt DateTime @default(now())
+}
+
+model Listing {
+  id          String   @id @default(uuid())
+  user        User     @relation("UserListings", fields: [userId], references: [id]) // Links to "UserListings"
+  userId      String
+  title       String
+  description String?
+  price       Float
+  currency    String   @default("USD")
+  images      Json?
+  status      String   @default("active")
+  createdAt   DateTime @default(now())
+}
+
+model Chat {
+  id           String    @id @default(uuid())
+  participants String[]
+  messages     Message[] @relation("ChatMessages") // Explicitly named relation
+  createdAt    DateTime  @default(now())
+}
+
+model Message {
+  id        String   @id @default(uuid())
+  content   String
+  createdAt DateTime @default(now())
+
+  // Relation to the User (author)
+  userId    String
+  user      User     @relation("UserMessages", fields: [userId], references: [id]) // Links to "UserMessages"
+
+  // ADDED: Relation to the Chat it belongs to
+  chatId    String
+  chat      Chat     @relation("ChatMessages", fields: [chatId], references: [id]) // Links to "ChatMessages"
+}

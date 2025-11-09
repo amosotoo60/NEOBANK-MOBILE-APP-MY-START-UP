@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>Ghana First Bank</title>
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Lucide Icons -->
+<script src="https://unpkg.com/lucide@latest"></script>
+
+<!-- Google Fonts: Inter -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+body { font-family: 'Inter', sans-serif; overscroll-behavior-y: contain; }
+.custom-scrollbar::-webkit-scrollbar { width: 4px; }
+.custom-scrollbar::-webkit-scrollbar-track { background: #f1f1f1; }
+.custom-scrollbar::-webkit-scrollbar-thumb { background: #888; border-radius: 6px; }
+.custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #555; }
+
+.page { animation: fadeIn 0.3s ease-in-out; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.pin-dot { width: 1rem; height: 1rem; border-radius: 50%; border: 2px solid #004d40; transition: background-color 0.2s; }
+.pin-dot.filled { background-color: #004d40; }
+</style>
+</head>
+<body class="bg-gray-100 antialiased">
+
+<div class="mx-auto max-w-sm h-[100svh] bg-white flex flex-col overflow-hidden shadow-2xl">
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="flex flex-col h-full justify-between items-center p-8 bg-gradient-to-br from-[#004d40] to-[#00796b] text-white">
+        <div class="text-center mt-16">
+            <div class="flex justify-center items-center mb-4">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-yellow-400">
+                    <path d="M12 2L9.70206 8.63339L2.5 9.70206L8.63339 14.2979L6.35114 21.5L12 17.25L17.6489 21.5L15.3666 14.2979L21.5 9.70206L14.2979 8.63339L12 2Z" fill="currentColor"/>
+                    <path d="M12 2L9.70206 8.63339L2.5 9.70206L8.63339 14.2979L6.35114 21.5L12 17.25L17.6489 21.5L15.3666 14.2979L21.5 9.70206L14.2979 8.63339L12 2Z" stroke="red" stroke-width="0.5"/>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold">Ghana First Bank</h1>
+            <p class="text-yellow-300 mt-1">Your Future, First.</p>
+        </div>
+
+        <div class="w-full text-center">
+            <p class="mb-4 text-lg">Welcome back, Kwame!</p>
+            <div class="flex justify-center space-x-4 mb-6">
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+                <div class="pin-dot"></div>
+            </div>
+            <div class="grid grid-cols-3 gap-4 text-2xl font-bold">
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">1</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">2</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">3</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">4</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">5</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">6</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">7</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">8</button>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">9</button>
+                <div class="flex justify-center items-center">
+                    <i data-lucide="fingerprint" class="h-8 w-8 text-yellow-300"></i>
+                </div>
+                <button class="p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">0</button>
+                <button class="flex justify-center items-center p-4 rounded-full bg-white/10 hover:bg-white/20 transition-colors">
+                    <i data-lucide="delete" class="h-7 w-7"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <a href="#" class="text-yellow-300">Need Help?</a>
+        </div>
+    </div>
+
+    <!-- Main App Container -->
+    <div id="main-app-container" class="hidden flex-1 flex-col overflow-hidden">
+
+        <main id="main-content" class="flex-1 overflow-y-auto custom-scrollbar pb-20">
+
+            <!-- Home Screen -->
+            <div id="home" class="page">
+                <header class="bg-[#004d40] p-4 text-white rounded-b-3xl">
+                    <div class="flex justify-between items-center mb-4">
+                        <div>
+                            <p class="text-md text-yellow-300">Akwaaba, Kwame!</p>
+                            <h2 class="text-2xl font-bold">Ghana First Bank</h2>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <button class="relative">
+                                <i data-lucide="bell" class="h-6 w-6"></i>
+                                <span class="absolute -top-1 -right-1 block h-2 w-2 rounded-full bg-red-500"></span>
+                            </button>
+                            <img src="https://placehold.co/40x40/E2E8F0/333333?text=KA" class="rounded-full">
+                        </div>
+                    </div>
+                    <div class="text-center bg-white/10 p-4 rounded-xl">
+                        <p class="text-sm opacity-80">Total Balance</p>
+                        <p class="text-4xl font-bold mt-1">GHS 5,280.75</p>
+                    </div>
+                </header>
+
+                <!-- Quick Actions -->
+                <section class="p-4">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Quick Actions</h3>
+                    <div class="grid grid-cols-4 gap-4 text-center">
+                        <div class="flex flex-col items-center">
+                            <button class="bg-teal-100 text-teal-800 p-4 rounded-full mb-1">
+                                <i data-lucide="send" class="h-6 w-6"></i>
+                            </button>
+                            <span class="text-xs font-medium text-gray-600">Send</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <button class="bg-yellow-100 text-yellow-800 p-4 rounded-full mb-1">
+                                <i data-lucide="receipt" class="h-6 w-6"></i>
+                            </button>
+                            <span class="text-xs font-medium text-gray-600">Pay Bills</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <button class="bg-green-100 text-green-800 p-4 rounded-full mb-1">
+                                <i data-lucide="smartphone" class="h-6 w-6"></i>
+                            </button>
+                            <span class="text-xs font-medium text-gray-600">Top-Up</span>
+                        </div>
+                        <div class="flex flex-col items-center">
+                            <button class="bg-red-100 text-red-800 p-4 rounded-full mb-1">
+                                <i data-lucide="qr-code" class="h-6 w-6"></i>
+                            </button>
+                            <span class="text-xs font-medium text-gray-600">QR Pay</span>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Payments Screen -->
+            <div id="payments" class="page hidden p-4">
+                <h2 class="text-2xl font-bold mb-4">Payments</h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white rounded-xl shadow">Pay Utility Bills</div>
+                    <div class="p-4 bg-white rounded-xl shadow">Transfer to Ghana First Bank</div>
+                    <div class="p-4 bg-white rounded-xl shadow">Transfer to Other Banks</div>
+                </div>
+            </div>
+
+            <!-- Cards Screen -->
+            <div id="cards" class="page hidden p-4">
+                <h2 class="text-2xl font-bold mb-4">My Cards</h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white rounded-xl shadow">Visa Debit - GHS 1,200.50</div>
+                    <div class="p-4 bg-white rounded-xl shadow">Mastercard Credit - GHS 3,500.00</div>
+                </div>
+            </div>
+
+            <!-- Savings Screen -->
+            <div id="savings" class="page hidden p-4">
+                <h2 class="text-2xl font-bold mb-4">Savings</h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white rounded-xl shadow">Goal: Buy a Car - GHS 2,000 / 5,000</div>
+                    <div class="p-4 bg-white rounded-xl shadow">Emergency Fund - GHS 1,500 / 3,000</div>
+                </div>
+            </div>
+
+            <!-- Profile Screen -->
+            <div id="profile" class="page hidden p-4">
+                <h2 class="text-2xl font-bold mb-4">Profile</h2>
+                <div class="space-y-4">
+                    <div class="p-4 bg-white rounded-xl shadow">Name: Kwame Appiah</div>
+                    <div class="p-4 bg-white rounded-xl shadow">Email: kwame@app.com</div>
+                    <div class="p-4 bg-white rounded-xl shadow">Phone: +233 123 456 789</div>
+                    <button class="p-3 w-full bg-red-600 text-white rounded-xl mt-4">Logout</button>
+                </div>
+            </div>
+
+        </main>
+
+        <!-- Bottom Navigation -->
+        <nav class="absolute bottom-0 left-0 right-0 max-w-sm mx-auto bg-white border-t border-gray-200">
+            <div id="nav-bar" class="flex justify-around py-2">
+                <button data-page="home" class="nav-item flex flex-col items-center justify-center w-full text-teal-600">
+                    <i data-lucide="home" class="h-6 w-6 mb-1"></i>
+                    <span class="text-xs font-bold">Home</span>
+                </button>
+                <button data-page="payments" class="nav-item flex flex-col items-center justify-center w-full text-gray-500">
+                    <i data-lucide="credit-card" class="h-6 w-6 mb-1"></i>
+                    <span class="text-xs font-bold">Payments</span>
+                </button>
+                <button data-page="cards" class="nav-item flex flex-col items-center justify-center w-full text-gray-500">
+                    <i data-lucide="credit-card" class="h-6 w-6 mb-1"></i>
+                    <span class="text-xs font-bold">Cards</span>
+                </button>
+                <button data-page="savings" class="nav-item flex flex-col items-center justify-center w-full text-gray-500">
+                    <i data-lucide="piggy-bank" class="h-6 w-6 mb-1"></i>
+                    <span class="text-xs font-bold">Savings</span>
+                </button>
+                <button data-page="profile" class="nav-item flex flex-col items-center justify-center w-full text-gray-500">
+                    <i data-lucide="user" class="h-6 w-6 mb-1"></i>
+                    <span class="text-xs font-bold">Profile</span>
+                </button>
+            </div>
+        </nav>
+
+    </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    lucide.createIcons();
+
+    // PIN Login
+    const loginScreen = document.getElementById('login-screen');
+    const mainAppContainer = document.getElementById('main-app-container');
+    const pinDots = document.querySelectorAll('.pin-dot');
+    const buttons = document.querySelectorAll('#login-screen .grid button');
+    const deleteButton = document.querySelector('[data-lucide="delete"]').closest("button");
+
+    let pin = "";
+
+    buttons.forEach(button => {
+        button.addEventListener('click', async () => {
+            const value = button.textContent.trim();
+            if (button === deleteButton) {
+                pin = pin.slice(0, -1);
+            } else if (/\d/.test(value) && pin.length < 6) {
+                pin += value;
+            }
+            pinDots.forEach((dot, index) => dot.classList.toggle('filled', index < pin.length));
+
+            if (pin.length === 6) {
+                try {
+                    const res = await fetch("http://localhost:5000/login", {
+                        method: "POST",
+                        headers: { "Content-Type": "application/json" },
+                        body: JSON.stringify({ pin })
+                    });
+                    const data = await res.json();
+                    if (data.success) {
+                        loginScreen.classList.add('hidden');
+                        mainAppContainer.classList.remove('hidden');
+                    } else {
+                        alert('Invalid PIN');
+                        pin = '';
+                        pinDots.forEach(dot => dot.classList.remove('filled'));
+                    }
+                } catch (err) {
+                    alert('Server connection failed');
+                }
+            }
+        });
+    });
+
+    // Bottom Navigation
+    const navButtons = document.querySelectorAll('#nav-bar button');
+    const pages = document.querySelectorAll('.page');
+
+    navButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const target = btn.getAttribute('data-page');
+            pages.forEach(p => p.classList.add('hidden'));
+            document.getElementById(target).classList.remove('hidden');
+
+            navButtons.forEach(b => b.classList.remove('text-teal-600'));
+            navButtons.forEach(b => b.classList.add('text-gray-500'));
+            btn.classList.remove('text-gray-500');
+            btn.classList.add('text-teal-600');
+        });
+    });
+
+    // Logout button
+    const logoutBtn = document.querySelector('#profile button');
+    logoutBtn.addEventListener('click', () => {
+        mainAppContainer.classList.add('hidden');
+        loginScreen.classList.remove('hidden');
+        pin = '';
+        pinDots.forEach(dot => dot.classList.remove('filled'));
+    });
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,130 @@
+openapi: 3.0.3
+info:
+  title: SuperApp API
+  version: 1.0.0
+  description: Minimal OpenAPI spec for SuperApp (Auth, Users, Wallets, Listings, Chat)
+servers:
+  - url: http://localhost:4000/api/v1
+paths:
+  /auth/signup:
+    post:
+      summary: Sign up
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: ok
+  /auth/login:
+    post:
+      summary: Login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        '200':
+          description: ok
+  /wallets/{userId}/balance:
+    get:
+      summary: Get wallet balance
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema: { type: string }
+      responses:
+        '200':
+          description: ok
+  /wallets/{userId}/send:
+    post:
+      summary: Send money P2P
+      parameters:
+        - in: path
+          name: userId
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                to: { type: string }
+                amount: { type: number }
+      responses:
+        '200': { description: ok }
+  /listings:
+    get:
+      summary: List listings
+      responses:
+        '200': { description: ok }
+    post:
+      summary: Create listing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title: { type: string }
+                description: { type: string }
+                price: { type: number }
+      responses:
+        '201': { description: created }
+  /chats:
+    post:
+      summary: Create chat
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                participants:
+                  type: array
+                  items: { type: string }
+      responses:
+        '201': { description: created }
+  /chats/{chatId}/messages:
+    get:
+      summary: Get messages
+      parameters:
+        - in: path
+          name: chatId
+          required: true
+          schema: { type: string }
+      responses:
+        '200': { description: ok }
+    post:
+      summary: Send message
+      parameters:
+        - in: path
+          name: chatId
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                senderId: { type: string }
+                body: { type: string }
+      responses:
+        '201': { description: created }
